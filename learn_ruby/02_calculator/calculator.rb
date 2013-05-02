@@ -1,26 +1,23 @@
-def add(x,y)
-  x+y
+def add(x, y)
+  x + y
 end
-def subtract(x,y)
-  x-y
+
+def subtract(x, y)
+  x - y
 end
+
 def sum(mas)
-  sum=0
-  mas.each do |x|
-    sum+=x
-  end
-  sum
+  mas.inject(0){|sum, x| sum + x}
 end
+
 def multiply(*mas)
-  m=1
-  mas.each do |x|
-    m*=x
-  end
-  m
+  mas.inject(1){|m, x| m * x}
 end
-def power(x,y)
+
+def power(x, y)
   x**y
 end
+
 def factorial(n)
   n > 1 ? n * factorial(n - 1) : 1
 end

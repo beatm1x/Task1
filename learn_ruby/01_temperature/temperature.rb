@@ -1,6 +1,6 @@
 def ftoc(f)
-    ((f - 32)/1.8).round
+  ((f - 32) / (9.0 / 5.0)).round
 end
 def ctof(c)
-    (1.8*c + 32)
+  ((9.0 / 5.0) * c + 32)
 end
