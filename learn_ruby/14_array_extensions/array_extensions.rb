@@ -1,15 +1,13 @@
 class Array
   def sum
-    s=0
-    self.each do |el|
-      s+=el
-    end
-    s
+    self.inject(0){|sum, x| sum + x}
   end
+
   def square
-    map{|n| n*n}
+    map{|n| n * n}
   end
+
   def square!
-    map!{|n| n*n}
+    self.replace(self.square)
   end
 end

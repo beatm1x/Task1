@@ -1,35 +1,36 @@
 class Temperature
   def initialize(options = {})
-    @f= options[:f]
-    @c= options[:c]
-    if @f!=nil
-      @c=((@f - 32)/1.8).round
-    end
-    if @c!=nil
-      @f=(1.8*@c + 32)
-    end
-  end
-  def in_fahrenheit
-    @f
-  end
-  def in_celsius
-    @c
-  end
-  def self.from_celsius(c)
-    self.new(:c=>c)
-  end
-  def self.from_fahrenheit(f)
-    self.new(:f=>f)
+    @fahrenheit = options[:f]
+    @celcius = options[:c]
+    @celcius = ((@fahrenheit - 32) / 1.8).round if @fahrenheit != nil
+    @fahrenheit = (1.8 * @celcius + 32) if @celcius != nil
   end
 
-end
-class Celsius < Temperature
-  def initialize t
-    super(:c=>t)
+  def in_fahrenheit
+    @fahrenheit
+  end
+
+  def in_celsius
+    @celcius
+  end
+
+  def self.from_celsius(celcius)
+    self.new(:c => celcius)
+  end
+
+  def self.from_fahrenheit(fahrenheit)
+    self.new(:f => fahrenheit)
   end
 end
+
+class Celsius < Temperature
+  def initialize t
+    super(:c => t)
+  end
+end
+
 class Fahrenheit < Temperature
   def initialize t
-    super(:f=>t)
+    super(:f => t)
   end
 end

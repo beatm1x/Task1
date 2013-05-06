@@ -1,38 +1,39 @@
 def translate(str)
-  str.split(' ').map {|w| translate_word(w) }.join(' ')
+  str.split(' ').map {|w| translate_word(w)}.join(' ')
 end
+
 def translate_word(str)
-  i=0
-  phoneme=['qu','sch']
-  is_phoneme=false
-  phoneme.each do |ph|
-    if str.include? ph and str.index(ph)==0
-      i=ph.length
+  i = 0
+  ['qu', 'sch'].each do |phoneme|
+    if str.include? phoneme and str.index(phoneme) == 0
+      i = phoneme.length
     end
   end
-  if i==0
+  if i == 0
     while not(is_vowel(str[i]))
-      i+=1
+      i += 1
     end
   end
-  if i>0
-    str=first_to_end(str,i)
+  if i > 0
+    str = first_to_end(str, i)
   end
-  str+'ay'
+  str + 'ay'
 end
-def first_to_end(str,i)
-  c=str[0..i-1]
-  str=str[i..str.length]
-  str[str.length..str.length+i]=c
+
+def first_to_end(str, i)
+  temp = str[0 .. i - 1]
+  str = str[i .. str.length]
+  str[str.length .. str.length + i] = temp
   str
 end
+
 def is_vowel(char)
-  vowels=['A', 'E', 'I', 'O', 'U', 'Y']
-  f=false
-  vowels.each do |c|
-    if c==char.upcase
-      f=true
+  vowels = ['A', 'E', 'I', 'O', 'U', 'Y']
+  result = false
+  vowels.each do |vowel|
+    if vowel == char.upcase
+      result = true
     end
   end
-  f
+  result
 end

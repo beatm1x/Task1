@@ -6,8 +6,8 @@ def shout(str)
   str.upcase
 end
 
-def repeat(str, n=2)
-  ((str + ' ') * (n - 1)) + str
+def repeat(str, n = 2)
+  ((str + ' ') * n).chop
 end
 
 def start_of_word(str, n)
@@ -19,7 +19,7 @@ def first_word(str)
 end
 
 def titleize(str)
-  words=str.split(' ').map {|word|
+  words = str.split(' ').map {|word|
     if ['the', 'and', 'over'].include?(word)
       word
     else

@@ -29,6 +29,7 @@ class Dictionary
     end
     result
   end
+
   def printable
     entries.map do |key_val|
      p %Q{[#{key_val.first}] "#{key_val.last}"}

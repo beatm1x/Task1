@@ -1,26 +1,26 @@
 class Book
   def title=(value)
-    first=true;
-    @title=value.split(' ').map {|w|
-      if is_article(w) and !first
-        w
+    words = value.split(' ').map {|word|
+      if is_article(word)
+        word
       else
-        w=w.capitalize
+        word.capitalize
       end
-      first=false
-      w
-    }.join(' ')
+    }
+    words.first.capitalize!
+    @title = words.join(' ')
   end
+
   def is_article(str)
-    articles=['the','a','an','and','in','of']
-    f=false;
-    articles.each do |article|
-      if article==str
-        f=true
+    f = false;
+    ['the','a','an','and','in','of'].each do |article|
+      if article == str and !f
+        f = true
       end
     end
     f
   end
+
   def title
     @title
   end
