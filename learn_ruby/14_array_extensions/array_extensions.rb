@@ -1,6 +1,6 @@
 class Array
   def sum
-    self.inject(0){|sum, x| sum + x}
+    inject(0){|sum, x| sum + x}
   end
 
   def square
@@ -8,6 +8,6 @@ class Array
   end
 
   def square!
-    self.replace(self.square)
+    replace(square)
   end
 end
