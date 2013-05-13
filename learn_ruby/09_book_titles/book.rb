@@ -12,13 +12,12 @@ class Book
   end
 
   def article?(str)
-    f = false;
-    ['the','a','an','and','in','of'].each do |article|
+    ['the','a','an','and','in','of'].inject(false) do |f, article|
       if article == str and !f
         f = true
       end
+      f
     end
-    f
   end
 
   def title
