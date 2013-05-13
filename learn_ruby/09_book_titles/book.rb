@@ -1,7 +1,7 @@
 class Book
   def title=(value)
     words = value.split(' ').map {|word|
-      if is_article(word)
+      if article?(word)
         word
       else
         word.capitalize
@@ -11,7 +11,7 @@ class Book
     @title = words.join(' ')
   end
 
-  def is_article(str)
+  def article?(str)
     f = false;
     ['the','a','an','and','in','of'].each do |article|
       if article == str and !f
